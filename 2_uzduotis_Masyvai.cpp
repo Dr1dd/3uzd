@@ -2,15 +2,14 @@
 #include <string>
 #include <iomanip>
 #include <sstream>
-#include <vector>
-//double Mediana(std::vector<int> ND, int n, int p);
+double Mediana(int *ND, int n, int p);
 int main(){
 	std::string vardas, pavarde;
 	int n = -1;
     double egzaminas;
 	double galutinis;
 	double vidurkis;
-	std::vector<int> ND;
+	int *ND = new int;
 	int suma = 0;
 	std::cout <<"Iveskite varda" << std::endl;
 	std::getline(std::cin, vardas);
@@ -34,7 +33,7 @@ int main(){
 		  i= i-1;
 		}
 		else {
-			ND.push_back(laik);
+			*(ND+i) = laik;
 			suma = suma + laik;
 		}
 	}
@@ -48,7 +47,7 @@ int main(){
 		}
 			else {
 				p++;
-				ND.push_back(laikina);
+				*(ND+p) = laikina;
 				suma = suma + laikina;
 			}
 		}
@@ -72,15 +71,14 @@ int main(){
 	if(p>0)vidurkis = (double)suma/p;
 	else vidurkis = (double)suma/n;
 	galutinis = 0.4 * vidurkis + 0.6*egzaminas;
-	//mediana = Mediana(ND, n, p);
+	mediana = Mediana(ND, n, p);
 	std::cout <<std::left <<std::setw(15)<<"Pavarde" <<std::left << std::setw(13) << "Vardas" <<std::left << std::setw(15) <<"VidGalutinis" << std::left << "MedGalutinis" <<std::endl;
 	std::cout <<std::setfill('-') << std::setw(53) << "-"<< std::endl;
 	std::cout << std::setfill(' ');
 	std::cout <<std::left <<std::setw(15)<< pavarde << std::left << std::setw(13)  << vardas <<std::left << std::setw(15) << std::setprecision(2) <<std::fixed << galutinis << std::left << mediana << std::endl;
 	return 0;
 }
-
-/*double Mediana(int *ND, int n, int p){
+double Mediana(int *ND, int n, int p){
 	int laik;
 	double mediana;
 	for(int i = 1; i <= n; i++){
@@ -96,4 +94,3 @@ int main(){
 	else mediana = ND[n/2+1];
 	return mediana;
 }
-*/
