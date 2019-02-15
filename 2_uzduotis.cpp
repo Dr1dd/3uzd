@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <stdlib.h>
 #include <time.h>
+#include <cctype>
 struct Studentai{
 	std::string fname, lname;
 	double egzGal;
@@ -16,11 +17,15 @@ struct Studentai{
 Studentai Informacija();
 void Spausdinti(const std::vector<Studentai> Studentai, std::string tipas, int studSkaic);
 double Mediana(Studentai &Stud, int n, int p);
+std::string Tikrinti(std::string tekstas);
+double TikrintiSkaicius(std::string tekstas);
 int main(){
 	srand(time(NULL));
 	int studSkaic;
+	std::string tekstas;
 	std::cout <<"Iveskite studentu skaiciu" << std::endl;
-	std::cin >> studSkaic;
+	std::cin.sync();
+	studSkaic = TikrintiSkaicius(tekstas);
 	
 	std::vector<Studentai> StudentuInfo;
 	for(int i = 0 ; i< studSkaic; i++) StudentuInfo.push_back(Informacija());
@@ -72,18 +77,22 @@ Studentai Informacija(){
 	double mediana = 0;
 	
 	int suma = 0;
-	
+	bool valid;
 	Studentai Stud;
-	
+	bool raides = true;
+	bool skaiciai = false;
+	std::string tekstas;
 	std::string ivestis;
 	std::cout <<"Iveskite varda" << std::endl;
-	std::cin>> Stud.fname;
+	std::cin.sync();
+	Stud.fname = Tikrinti(tekstas);
 	std::cout <<"Iveskite pavarde" << std::endl;
-	std::cin >>Stud.lname;
+	std::cin.sync();
+    Stud.lname = Tikrinti(tekstas);
 	bool gen = false;
 	std::string generuoti;
 	int randomSkaic;
-	std::cout <<"Iveskite kiek namu darbu buvo atlikta (0 = ivedimas baigiamas)" << std::endl;
+	std::cout <<"Iveskite kiek namu darbu buvo atlikta (Bet koks simbolis isskyrus skaicius = ivedimo baigimas irasius 0)" << std::endl;
 	 std::cin.sync();
 	 std::getline(std::cin, ivestis);
 	 std::stringstream s(ivestis);
@@ -105,7 +114,8 @@ Studentai Informacija(){
 		else{
 			for(int i =1;i <=n; i++){
 		std::cout <<"Iveskite nr " << i << " namu darbo rezultata (1-10)" << std::endl;
-		std::cin >> laik;
+		std::cin.sync();
+		laik = TikrintiSkaicius(tekstas);
 		if(laik >10 || laik <0){
 		  std::cout <<"Jus ivedete neimanoma rezultata, bandykite dar karta" << std::endl;
 		  i= i-1;
@@ -120,7 +130,7 @@ Studentai Informacija(){
     else{
         while(laikina != 0){
 			std::cout <<"Iveskite nr " << p+1 << " namu darbo rezultata (1-10) (0 = ivedimas baigiamas)" << std::endl;
-			std::cin>> laikina;
+			laikina = TikrintiSkaicius(tekstas);
 			if(laikina >10 || laikina <0){
 		  		std::cout <<"Jus ivedete neimanoma rezultata, bandykite dar karta" << std::endl;
 		}
@@ -144,7 +154,8 @@ Studentai Informacija(){
 	}
 	else{
 	std::cout <<"Iveskite egzamino rezultata" << std::endl;
-	std::cin >> egzam;
+	std::cin.sync();
+	egzam = TikrintiSkaicius(tekstas); 
 	if(egzam > 10 || egzam <1){
 		while(egzam >10 || egzam < 1){
 			std::cout <<"Jus ivedete neimanoma rezultata, bandykite dar karta" << std::endl;
@@ -185,4 +196,58 @@ double Mediana(Studentai &Stud, int n, int p){
 
 return mediana;
 }
+std::string Tikrinti(std::string tekstas){
+	std::string n;
+	bool valid;
+		std::cin.sync();
+	 do
+    {
+        std::getline(std::cin,tekstas);
+        std::stringstream s(tekstas);
+        valid = true;
+        if(s >> n){
+        for(auto& i : tekstas)
+        {
+            if(!std::isalpha(i))
+            {
+                valid = false;
+                std::cout << "Ivestis neteisinga. Bandykite dar karta tik su raidemis" << std::endl;
+                break;
+            }
+        }
+    }
+    else{
+    	valid = false;
+    	std::cout << "Ivestis neteisinga. Bandykite dar karta tik su raidemis" << std::endl;
+	}
+    }while(!valid);
+    return tekstas;
+}
+double TikrintiSkaicius(std::string tekstas){
+		bool valid;
+    std::string n;
+	do
+    {
+        std::getline(std::cin,tekstas);
+        std::stringstream s(tekstas);
+        if(s >> n){
+        valid = true;
+        for(auto& i : tekstas)
+        {
+            if(!std::isdigit(i))
+            {
+                valid = false;
+                std::cout << "Ivestis neteisinga. Bandykite dar karta tik su skaiciais" << std::endl;
+                break;
+            }
+        }
+    }
+    else{
+	     valid = false;
+         std::cout << "Ivestis neteisinga. Bandykite dar karta tik su skaiciais" << std::endl;
+}
+    }while(!valid);
+    return std::stoi(tekstas);
+}
+
 
