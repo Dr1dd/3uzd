@@ -44,20 +44,26 @@ int main(){
 	return 0;
 }
 void Spausdinti(const std::vector<Studentai> Studentai, std::string tipas, int studSkaic){
+	int ilgiausiasV = 0;
+	int ilgiausiaP = 0;
+	for(int i = 0; i < studSkaic; i++) {
+    if(Studentai[i].fname.size() > ilgiausiasV) ilgiausiasV = Studentai[i].fname.size();
+    if(Studentai[i].lname.size() > ilgiausiaP) ilgiausiaP = Studentai[i].lname.size();
+}
 	if(tipas == "Vid"){
-	std::cout <<std::left <<std::setw(15)<<"Pavarde" <<std::left << std::setw(13) << "Vardas" <<std::left << std::setw(19) <<"Galutinis (Vid.)" <<std::endl;
+	std::cout <<std::left <<std::setw(7+ilgiausiaP)<<"Pavarde" <<std::left << std::setw(7+ilgiausiasV) << "Vardas" <<std::left << std::setw(19) <<"Galutinis (Vid.)" <<std::endl;
 	std::cout <<std::setfill('-') << std::setw(60) << "-"<< std::endl;
 	std::cout << std::setfill(' ');
 	for(int nuo = 0; nuo < studSkaic; nuo++){
-		std::cout <<std::left <<std::setw(15)<< Studentai[nuo].lname << std::left << std::setw(13)  << Studentai[nuo].fname <<std::left << std::setw(19) << std::setprecision(2) <<std::fixed << Studentai[nuo].egzGal << std::endl;
+		std::cout <<std::left <<std::setw(7+ilgiausiaP)<< Studentai[nuo].lname << std::left << std::setw(7+ilgiausiasV)  << Studentai[nuo].fname <<std::left << std::setw(19) << std::setprecision(2) <<std::fixed << Studentai[nuo].egzGal << std::endl;
 	}
 	}
 	else{
-	std::cout <<std::left <<std::setw(15)<<"Pavarde" <<std::left << std::setw(13) << "Vardas" <<std::left << std::setw(19) << "Galutinis (Med.)" <<std::endl;
+	std::cout <<std::left <<std::setw(7+ilgiausiaP)<<"Pavarde" <<std::left << std::setw(7+ilgiausiasV) << "Vardas" <<std::left << std::setw(19) << "Galutinis (Med.)" <<std::endl;
 	std::cout <<std::setfill('-') << std::setw(60) << "-"<< std::endl;
 	std::cout << std::setfill(' ');
 	for(int nuo1 = 0; nuo1 < studSkaic; nuo1++){
-		std::cout <<std::left <<std::setw(15)<< Studentai[nuo1].lname << std::left << std::setw(13)  << Studentai[nuo1].fname <<std::left << std::setw(19) << std::setprecision(2) <<std::fixed << Studentai[nuo1].mediana << std::endl;
+		std::cout <<std::left <<std::setw(7+ilgiausiaP)<< Studentai[nuo1].lname << std::left << std::setw(7+ilgiausiasV)  << Studentai[nuo1].fname <<std::left << std::setw(19) << std::setprecision(2) <<std::fixed << Studentai[nuo1].mediana << std::endl;
 	}	
 	}
 	
@@ -97,7 +103,7 @@ Studentai Informacija(){
 	 std::getline(std::cin, ivestis);
 	 std::stringstream s(ivestis);
     if(s >> n){
-    	std::cout<<"Ar norite skaicius generuoti? Pasirinkimai: (Taip arba Ne)" << std::endl;
+    	std::cout<<"Ar norite skaicius generuoti?(egz ir n.d.) Pasirinkimai: (Taip arba Ne)" << std::endl;
     	std::cin>> generuoti;
     	while(generuoti!= "Taip" && generuoti !="Ne" && generuoti!= "taip" && generuoti !="ne"){
 		std::cout<<"Ivestis neteisinga, bandykite dar karta: (Iveskite Taip arba Ne)" << std::endl;
