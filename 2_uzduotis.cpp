@@ -4,16 +4,20 @@
 #include <sstream>
 #include <vector>
 #include <algorithm>
+#include <stdlib.h>
+#include <time.h>
 struct Studentai{
 	std::string fname, lname;
 	double egzGal;
 	double mediana;
 	std::vector<int> ND;
 };
+     
 Studentai Informacija();
 void Spausdinti(const std::vector<Studentai> Studentai, std::string tipas, int studSkaic);
 double Mediana(Studentai &Stud, int n, int p);
 int main(){
+	srand(time(NULL));
 	int studSkaic;
 	std::cout <<"Iveskite studentu skaiciu" << std::endl;
 	std::cin >> studSkaic;
@@ -76,12 +80,29 @@ Studentai Informacija(){
 	std::cin>> Stud.fname;
 	std::cout <<"Iveskite pavarde" << std::endl;
 	std::cin >>Stud.lname;
-	
+	bool gen = false;
+	std::string generuoti;
+	int randomSkaic;
 	std::cout <<"Iveskite kiek namu darbu buvo atlikta (0 = ivedimas baigiamas)" << std::endl;
 	 std::cin.sync();
 	 std::getline(std::cin, ivestis);
 	 std::stringstream s(ivestis);
     if(s >> n){
+    	std::cout<<"Ar norite skaicius generuoti? Pasirinkimai: (Taip arba Ne)" << std::endl;
+    	std::cin>> generuoti;
+    	while(generuoti!= "Taip" && generuoti !="Ne" && generuoti!= "taip" && generuoti !="ne"){
+		std::cout<<"Ivestis neteisinga, bandykite dar karta: (Iveskite Taip arba Ne)" << std::endl;
+		std::cin >> generuoti;
+   }
+    	if(generuoti == "Taip"){
+    	 gen = true;
+    	for(int i =1;i <=n; i++){
+    		randomSkaic = 1+rand()%10;
+    	 Stud.ND.push_back(randomSkaic);
+    	 suma = suma + randomSkaic;
+    }
+		}
+		else{
 			for(int i =1;i <=n; i++){
 		std::cout <<"Iveskite nr " << i << " namu darbo rezultata (1-10)" << std::endl;
 		std::cin >> laik;
@@ -94,6 +115,7 @@ Studentai Informacija(){
 			suma = suma + laik;	
 		}
         }
+    }
     }
     else{
         while(laikina != 0){
@@ -110,7 +132,17 @@ Studentai Informacija(){
 			}
 		}
 	}
-
+	int egzas = 0;
+	if(gen == true){
+		egzas = 1+rand()%10;
+	if(p>0)vidurkis = (double)suma/p;
+	else vidurkis = (double)suma/n;
+	galutinis = 0.4 * vidurkis + 0.6*egzas;
+	Stud.egzGal = galutinis;
+	mediana = Mediana(Stud, n, p);
+	Stud.mediana = 0.4 * mediana + 0.6*egzas;
+	}
+	else{
 	std::cout <<"Iveskite egzamino rezultata" << std::endl;
 	std::cin >> egzam;
 	if(egzam > 10 || egzam <1){
@@ -123,11 +155,11 @@ Studentai Informacija(){
 	else egzaminas = egzam;
 	if(p>0)vidurkis = (double)suma/p;
 	else vidurkis = (double)suma/n;
-	mediana = Mediana(Stud, n, p);
 	galutinis = 0.4 * vidurkis + 0.6*egzaminas;
 	Stud.egzGal = galutinis;
+	mediana = Mediana(Stud, n, p);
 	Stud.mediana = 0.4 * mediana + 0.6*egzaminas;
-
+}
 
 return Stud;
 }
@@ -135,9 +167,7 @@ return Stud;
 double Mediana(Studentai &Stud, int n, int p){
 	double mediana;
 	std::sort(Stud.ND.begin(), Stud.ND.end());
-	for(int i = 0; i <n; i++){
-		std::cout << Stud.ND[i] << std::endl;
-	}
+
 	if(n!=0){
 		if(n % 2 == 0) mediana = (Stud.ND[n/2-1] + Stud.ND[n/2]) / 2;
 		else {
