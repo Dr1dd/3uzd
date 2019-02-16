@@ -16,12 +16,13 @@ struct Studentai{
 };
      
 Studentai Informacija();
-void Spausdinti(const std::vector<Studentai> Studentai, std::string tipas, int studSkaic);
-void Spausdinti(const std::vector<Studentai> Studentai);
+void Spausdinti(std::vector<Studentai> Studentai, std::string tipas, int studSkaic);
+void Spausdinti(std::vector<Studentai> Studentai);
 double Mediana(Studentai Stud, int n, int p);
 std::string Tikrinti(std::string tekstas);
 double TikrintiSkaicius(std::string tekstas);
 void Skaitymas(std::vector<Studentai> &StudentuInfo);
+bool Lyginimas(const Studentai &a, const Studentai &b);
 int main(){
 	srand(time(NULL));
 	std::string pradinis;
@@ -58,7 +59,8 @@ int main(){
 }
 	return 0;
 }
-void Spausdinti(const std::vector<Studentai> Studentai, std::string tipas, int studSkaic){
+void Spausdinti(std::vector<Studentai> Studentai, std::string tipas, int studSkaic){
+	std::sort(Studentai.begin(), Studentai.end(), Lyginimas);
 	int ilgiausiasV = 0;
 	int ilgiausiaP = 0;
 	for(int i = 0; i < studSkaic; i++) {
@@ -83,7 +85,8 @@ void Spausdinti(const std::vector<Studentai> Studentai, std::string tipas, int s
 	}
 	
 }
-void Spausdinti(const std::vector<Studentai> Studentai){
+void Spausdinti(std::vector<Studentai> Studentai){
+	std::sort(Studentai.begin(), Studentai.end(), Lyginimas);
 	int studSkaic = 0;
 	for(int z=0; z<Studentai.size(); z++){
 		studSkaic++;
@@ -343,5 +346,9 @@ void Skaitymas(std::vector<Studentai> &StudentuInfo){
 }
 	fd.close();
 }
+}
+bool Lyginimas(const Studentai &a, const Studentai &b)
+{
+    return a.lname < b.lname;
 }
 
