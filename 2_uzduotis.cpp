@@ -4,6 +4,7 @@
 #include <sstream>
 #include <vector>
 #include <algorithm>
+<<<<<<< HEAD
 #include <stdlib.h>
 #include <time.h>
 #include <cctype>
@@ -23,6 +24,12 @@ std::string Tikrinti(std::string tekstas);
 double TikrintiSkaicius(std::string tekstas);
 void Skaitymas(std::vector<Studentai> &StudentuInfo);
 bool Lyginimas(const Studentai &a, const Studentai &b);
+=======
+#include <cctype>
+#include <fstream>
+#include "funkcijos.h"
+
+>>>>>>> development
 int main(){
 	srand(time(NULL));
 	std::string pradinis;
@@ -32,6 +39,7 @@ int main(){
 		while(pradinis != "1" && pradinis !="0"){
 			std::cout <<"Ivestis neteisinga, bandykite dar karta ivesdami 1 ar 0" << std::endl;
 			std::cin >> pradinis;
+<<<<<<< HEAD
 		}
 	if(pradinis == "1"){
 			Skaitymas(StudentuInfo);
@@ -184,8 +192,25 @@ Studentai Informacija(){
 				Stud.ND.push_back(laikina);
 				suma = suma + laikina;
 			}
+=======
 		}
+	if(pradinis == "1"){
+			Skaitymas(StudentuInfo);
+			Spausdinti(StudentuInfo);
+>>>>>>> development
+		}
+	else{
+	int studSkaic;
+	bool valid = true;
+	std::string tekstas;
+	std::cout <<"Iveskite studentu skaiciu" << std::endl;
+	std::cin.sync();
+	while(valid){
+		valid = false;
+	try{
+		studSkaic = TikrintiSkaicius(tekstas);		
 	}
+<<<<<<< HEAD
 	int egzas = 0;
 	if(gen == true){
 		egzas = 1+rand()%10;
@@ -352,3 +377,29 @@ bool Lyginimas(const Studentai &a, const Studentai &b)
     return a.lname < b.lname;
 }
 
+=======
+	catch(const std::out_of_range& e){
+		std::cout<< "Sis skaicius yra per didelis, bandykite dar karta" <<std::endl;
+		valid = true;
+		
+	}
+}
+	StudentuInfo.reserve(studSkaic);
+	for(int i = 0 ; i< studSkaic; i++) StudentuInfo.push_back(Informacija());
+	
+	
+	std::string tipas;
+	std::cout <<"Pasirinkite kokio rezultato norite - Vid ar Med" << std::endl;
+	std::cin >> tipas;
+	
+	while(tipas!= "Vid" && tipas !="Med"){
+		std::cout<<"Ivestis neteisinga, bandykite dar karta" << std::endl;
+		std::cin >> tipas;
+}
+	Spausdinti(StudentuInfo, tipas, studSkaic);
+}
+	return 0;
+}
+
+
+>>>>>>> development
