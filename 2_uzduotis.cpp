@@ -39,7 +39,7 @@ int main(){
 		
 	}
 }
-	
+	StudentuInfo.reserve(studSkaic);
 	for(int i = 0 ; i< studSkaic; i++) StudentuInfo.push_back(Informacija());
 	
 	
