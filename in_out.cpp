@@ -3,9 +3,11 @@
 #include <iomanip>
 #include <sstream>
 #include <vector>
+#include <list>
 #include <algorithm>
 #include <cctype>
 #include <fstream>
+#include <iterator>
 #include "funkcijos.h"
 
 void Spausdinti(std::vector<Studentai> Studentai, std::string tipas, int studSkaic){
@@ -13,26 +15,26 @@ void Spausdinti(std::vector<Studentai> Studentai, std::string tipas, int studSka
 	int ilgiausiasV = 0;
 	int ilgiausiaP = 0;
 	for(int i = 0; i < studSkaic; i++) {
-    if(Studentai[i].fname.size() > ilgiausiasV) ilgiausiasV = Studentai[i].fname.size();
-    if(Studentai[i].lname.size() > ilgiausiaP) ilgiausiaP = Studentai[i].lname.size();
-}
-	if(tipas == "Vid"){
-	std::cout <<std::left <<std::setw(7+ilgiausiaP)<<"Pavarde" <<std::left << std::setw(7+ilgiausiasV) << "Vardas" <<std::left << std::setw(19) <<"Galutinis (Vid.)" <<std::endl;
-	std::cout <<std::setfill('-') << std::setw(14+ilgiausiaP+ilgiausiasV+19) << "-"<< std::endl;
-	std::cout << std::setfill(' ');
-	for(int nuo = 0; nuo < studSkaic; nuo++){
-		std::cout <<std::left <<std::setw(7+ilgiausiaP)<< Studentai[nuo].lname << std::left << std::setw(7+ilgiausiasV)  << Studentai[nuo].fname <<std::left << std::setw(19) << std::setprecision(2) <<std::fixed << Studentai[nuo].egzGal << std::endl;
+		if(Studentai[i].fname.size() > ilgiausiasV) ilgiausiasV = Studentai[i].fname.size();
+		if(Studentai[i].lname.size() > ilgiausiaP) ilgiausiaP = Studentai[i].lname.size();
 	}
+	if(tipas == "Vid"){
+		std::cout <<std::left <<std::setw(7+ilgiausiaP)<<"Pavarde" <<std::left << std::setw(7+ilgiausiasV) << "Vardas" <<std::left << std::setw(19) <<"Galutinis (Vid.)" <<std::endl;
+		std::cout <<std::setfill('-') << std::setw(14+ilgiausiaP+ilgiausiasV+19) << "-"<< std::endl;
+		std::cout << std::setfill(' ');
+		for(int nuo = 0; nuo < studSkaic; nuo++){
+			std::cout <<std::left <<std::setw(7+ilgiausiaP)<< Studentai[nuo].lname << std::left << std::setw(7+ilgiausiasV)  << Studentai[nuo].fname <<std::left << std::setw(19) << std::setprecision(2) <<std::fixed << Studentai[nuo].egzGal << std::endl;
+		}
 	}
 	else{
-	std::cout <<std::left <<std::setw(7+ilgiausiaP)<<"Pavarde" <<std::left << std::setw(7+ilgiausiasV) << "Vardas" <<std::left << std::setw(19) << "Galutinis (Med.)" <<std::endl;
-	std::cout <<std::setfill('-') << std::setw(14+ilgiausiaP+ilgiausiasV+19) << "-"<< std::endl;
-	std::cout << std::setfill(' ');
-	for(int nuo1 = 0; nuo1 < studSkaic; nuo1++){
-		std::cout <<std::left <<std::setw(7+ilgiausiaP)<< Studentai[nuo1].lname << std::left << std::setw(7+ilgiausiasV)  << Studentai[nuo1].fname <<std::left << std::setw(19) << std::setprecision(2) <<std::fixed << Studentai[nuo1].mediana << std::endl;
-	}	
+		std::cout <<std::left <<std::setw(7+ilgiausiaP)<<"Pavarde" <<std::left << std::setw(7+ilgiausiasV) << "Vardas" <<std::left << std::setw(19) << "Galutinis (Med.)" <<std::endl;
+		std::cout <<std::setfill('-') << std::setw(14+ilgiausiaP+ilgiausiasV+19) << "-"<< std::endl;
+		std::cout << std::setfill(' ');
+		for(int nuo1 = 0; nuo1 < studSkaic; nuo1++){
+			std::cout <<std::left <<std::setw(7+ilgiausiaP)<< Studentai[nuo1].lname << std::left << std::setw(7+ilgiausiasV)  << Studentai[nuo1].fname <<std::left << std::setw(19) << std::setprecision(2) <<std::fixed << Studentai[nuo1].mediana << std::endl;
+		}
 	}
-	
+
 }
 void Spausdinti(std::vector<Studentai> Studentai){
 	std::sort(Studentai.begin(), Studentai.end(), Lyginimas);
@@ -55,7 +57,7 @@ void Spausdinti(std::vector<Studentai> Studentai){
 	}
 
 }
-void Skaitymas(std::vector<Studentai> &StudentuInfo){
+void Skaitymas(std::vector<Studentai> &StudentuInfo, std::string pav){
 	std::string a;
 	std::string b;
 	int skaicius = 0;
@@ -70,7 +72,7 @@ void Skaitymas(std::vector<Studentai> &StudentuInfo){
 	int suma = 0;
 	
 	std::ifstream fd;
-	fd.open("kursiokai.txt");
+	fd.open(pav);
 	if (!fd.is_open())
     {
        std::cout <<"Nepavyko atidaryti failo" << std::endl;
