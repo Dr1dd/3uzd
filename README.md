@@ -150,3 +150,5 @@ Užduotyje nurodytų studentų rūšiavimą reikėjo perteikti trimis skirtingai
 | 100000 | 1.4865 s. |
 
 * Funkcijos naudojamos programos efektyvumui pagerinti: [imgur](https://imgur.com/a/ZUuqimf)
+
+Nuotraukos su programos laikais: [vektoriai](https://imgur.com/a/WJtahba), [listai](https://imgur.com/a/adZMfZU), [dekai](https://imgur.com/a/hKofp2w)
