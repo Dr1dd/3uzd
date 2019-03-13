@@ -6,7 +6,7 @@ struct Studentai{
 	std::string fname, lname;
 	double egzGal;
 	double mediana;
-	std::vector<int> ND;
+	std::vector<double> ND;
 };
      
 Studentai Informacija();
@@ -23,8 +23,20 @@ void SkaitymasDeque(std::deque<Studentai> &StudentuInfo, std::string pav);
 bool Lyginimas(const Studentai &a, const Studentai &b);
 bool fileExists(const std::string& filename);
 void Generuoti(int n);
+void Generuoti(std::vector<Studentai> StudentuInfo, int n);
+void Generuoti(std::list<Studentai> &StudentuInfo, int n);
+void Generuoti(std::deque<Studentai> StudentuInfo, int n);
+void FailuIrasymas(std::vector<Studentai> StudentuInfo, int n);
+void FailuIrasymas(std::list<Studentai> &StudentuInfo, int n);
+void FailuIrasymas(std::deque<Studentai> StudentuInfo, int n);
+void VectorRusiavimas1strat(std::vector<Studentai> StudentuInfo, int n);
+void ListRusiavimas1strat(std::list<Studentai> &StudentuInfo, int n);
+void DequeRusiavimas1strat(std::deque<Studentai> StudentuInfo, int n);
+void VectorRusiavimas2strat(std::vector<Studentai> StudentuInfo, int n);
+void ListRusiavimas2strat(std::list<Studentai> &StudentuInfo, int n);
+void DequeRusiavimas2strat(std::deque<Studentai> StudentuInfo, int n);
 void vector();
 void list();
 void deque();
-
+bool maziau(const Studentai &i);
 #endif
