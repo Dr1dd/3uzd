@@ -55,6 +55,8 @@ Nuotraukos su kiekvieno konteinerio generavimo laikais yra pačiame [release.](h
 | listai     | 14.23 s. |
 | dekai       | 13.70 s. |
 
+___
+
 | Bandymas (Skaitant ir spausdinant iš kursiokai.txt) | Laikas   |
 | :--------: | -------- |
 | vektoriai       | 0.04 s. |
@@ -91,6 +93,8 @@ Užduotyje nurodytų studentų rūšiavimą reikėjo perteikti trimis skirtingai
 | 10000 | 25.7449 s. |
 | 100000 | ∞ |
 
+___
+
 | Listai 1 strat. (Studentai) | Laikas |
 | ----------------- | ------ |
 | 10 | 0.00234 s. |
@@ -106,6 +110,8 @@ Užduotyje nurodytų studentų rūšiavimą reikėjo perteikti trimis skirtingai
 | 1000 | 0.018242 s. |
 | 10000 | 0.127754 s. |
 | 100000 | 1.2391 s. |
+
+___
 
 | Dekai 1 strat. (Studentai) | Laikas |
 | ----------------- | ------ |
@@ -132,6 +138,8 @@ Užduotyje nurodytų studentų rūšiavimą reikėjo perteikti trimis skirtingai
 | 1000 | 0.020686 s. |
 | 10000 | 0.162558 s. |
 | 100000 | 1.61132 s. |
+
+___
 
 | Vektoriai 2 strat. + removeif (Studentai) | Laikas |
 | ----------------- | ------ |
