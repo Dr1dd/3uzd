@@ -152,3 +152,46 @@ Užduotyje nurodytų studentų rūšiavimą reikėjo perteikti trimis skirtingai
 * Funkcijos naudojamos programos efektyvumui pagerinti: [imgur](https://imgur.com/a/ZUuqimf)
 
 Nuotraukos su programos laikais: [vektoriai](https://imgur.com/a/WJtahba), [listai](https://imgur.com/a/adZMfZU), [dekai](https://imgur.com/a/hKofp2w)
+### [Papildomas Releasas (v1.1)](https://github.com/Dr1dd/2-u-d./releases/tag/v1.1)
+Papildoma užduotis reikalauja dar vieno studentų rūšiavimo būdo -> push backinti maziau nei 5 balus gavusius studentus į naują vector konteinerį (šiuo atveju pav. neismoko) ir įterpti daugiau arba 5 gavusius studentus į tą patį pradinį buvusį vector konteinerį (mano atveju StudentuInfo)
+
+
+| Vektoriai papildoma strat. "minkštų" rūšiavimas | Laikas |
+| ----------------- | ------ |
+| 10 | 0 s. |
+| 100 | 0.00758 s. |
+| 1000 | 0.01199 s. |
+| 10000 | 0.079638 s. |
+| 100000 | 0.75998 s. |
+
+| Vektoriai papildoma strat. "kietų" rūšiavimas | Laikas |
+| ----------------- | ------ |
+| 10 | 0 s. |
+| 100 | 0.00799 s. |
+| 1000 | 0.2044 s. |
+| 10000 | 17.456 s. |
+| 100000 | +600 s. |
+
+Šiuo būdu rūšiuojant studentus "kieti" studentai yra rūšiuojami ytin ilgai.
+___
+
+| Dekai papildoma strat. "minkštų" rūšiavimas | Laikas |
+| ----------------- | ------ |
+| 10 | 0 s. |
+| 100 | 0.00514 s. |
+| 1000 | 0.0120 s. |
+| 10000 | 0.0639 s. |
+| 100000 | 0.62399 s. |
+
+
+| Dekai papildoma strat. "kietų" rūšiavimas | Laikas |
+| ----------------- | ------ |
+| 10 | 0 s. |
+| 100 | 0.003867 s. |
+| 1000 | 0.00797 s. |
+| 10000 | 0.05565 s. |
+| 100000 | 0.29589 s. |
+
+Šiuo būdu rūšiuojant studentus, rūšiavimo laikas žymiai pagreitėja palyginus su vektoriais. 
+
+Nuotraukos su keliais bandymais: [imgur link](https://imgur.com/a/kXh1tQg)
