@@ -193,5 +193,6 @@ ___
 | 100000 | 0.29589 s. |
 
 Šiuo būdu rūšiuojant studentus, rūšiavimo laikas žymiai pagreitėja palyginus su vektoriais. 
+Taip pat "kietų" studentų rūšiavimo laikas yra trumpesnis nei "minkštų" studentų rūšiavimo laikas. (naudojant vektorius būna atvirkščiai)
 
 Nuotraukos su keliais bandymais: [imgur link](https://imgur.com/a/kXh1tQg)
