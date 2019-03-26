@@ -4,3 +4,7 @@
 funkcijos.o
 in_out.o
 tikrinimas.o
+funkcijos.h.gch
+vector.o
+list.o
+deque.o
