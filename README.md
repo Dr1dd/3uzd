@@ -163,23 +163,25 @@ Greičiausias gautas laikas buvo gautas naudojant list'us ir 2 studentų rūšia
 
 Nuotraukos su programos laikais: [vektoriai](https://imgur.com/a/WJtahba), [listai](https://imgur.com/a/adZMfZU), [dekai](https://imgur.com/a/hKofp2w)
 ### [Papildomas Releasas (v1.1)](https://github.com/Dr1dd/2-u-d./releases/tag/v1.1)
-Papildoma užduotis reikalauja dar vieno studentų rūšiavimo būdo -> push backinti mažiau nei 5 balus gavusius studentus į naują vector konteinerį (šiuo atveju pav. neismoko) ir įterpti daugiau arba 5 gavusius studentus į tą patį pradinį buvusį vector konteinerį (mano atveju StudentuInfo)
+Papildoma užduotis reikalauja dar vieno studentų rūšiavimo būdo -> push backinti mažiau nei 5 balus gavusius studentus į naują vector konteinerį (šiuo atveju pav. neismoko) ir įterpti daugiau arba 5 gavusius studentus į tą patį pradinį buvusį vector konteinerį (mano atveju StudentuInfo).
+
+Buvo sukurtos naujos funkcijos: raskMinkstus(); iterpkKietus(); raskMinkstusDeque(); iterpkKietusDeque();
 
 
 | Vektoriai papildoma strat. "minkštų" rūšiavimas | Laikas |
 | ----------------- | ------ |
-| 10 | 0 s. |
-| 100 | 0.00758 s. |
-| 1000 | 0.01199 s. |
-| 10000 | 0.079638 s. |
-| 100000 | 0.75998 s. |
+| 10 | 0.003027 s. |
+| 100 | 0.005021 s. |
+| 1000 | 0.01382 s. |
+| 10000 | 0.067877 s. |
+| 100000 | 0.599438 s. |
 
 | Vektoriai papildoma strat. "kietų" rūšiavimas | Laikas |
 | ----------------- | ------ |
-| 10 | 0 s. |
-| 100 | 0.00799 s. |
-| 1000 | 0.2044 s. |
-| 10000 | 17.456 s. |
+| 10 | 0.00303 s. |
+| 100 | 0.009994 s. |
+| 1000 | 0.374872 s. |
+| 10000 | 39.9822 s. |
 | 100000 | +600 s. |
 
 Šiuo būdu rūšiuojant studentus "kieti" studentai yra rūšiuojami ytin ilgai.
@@ -187,22 +189,22 @@ ___
 
 | Dekai papildoma strat. "minkštų" rūšiavimas | Laikas |
 | ----------------- | ------ |
-| 10 | 0 s. |
-| 100 | 0.00514 s. |
-| 1000 | 0.0120 s. |
-| 10000 | 0.0639 s. |
-| 100000 | 0.62399 s. |
+| 10 | 0.004987 s. |
+| 100 | 0.005988 s. |
+| 1000 | 0.011147 s. |
+| 10000 | 0.071503 s. |
+| 100000 | 0.470746 s. |
 
 
 | Dekai papildoma strat. "kietų" rūšiavimas | Laikas |
 | ----------------- | ------ |
-| 10 | 0 s. |
-| 100 | 0.003867 s. |
-| 1000 | 0.00797 s. |
-| 10000 | 0.05565 s. |
-| 100000 | 0.29589 s. |
+| 10 | 0.002991 s. |
+| 100 | 0.005986 s. |
+| 1000 | 0.014964 s. |
+| 10000 | 0.109712 s. |
+| 100000 | 0.80394 s. |
 
 Šiuo būdu rūšiuojant studentus, rūšiavimo laikas žymiai pagreitėja palyginus su vektoriais. 
-Taip pat "kietų" studentų rūšiavimo laikas yra trumpesnis nei "minkštų" studentų rūšiavimo laikas. (naudojant vektorius būna atvirkščiai)
+Taip pat "minkštų" studentų rūšiavimo laikas yra trumpesnis nei "kietų". Insert tipo rūšiavimas labiau tinka dekų konteineriams, nes į juos galima tiesiog "push front'inti".
 
-Nuotraukos su keliais bandymais: [imgur link](https://imgur.com/a/kXh1tQg)
+Nuotraukos su keliais bandymais: [imgur link](https://imgur.com/a/kNWviiv)
