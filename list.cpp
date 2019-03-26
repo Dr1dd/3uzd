@@ -227,21 +227,21 @@ void FailuIrasymas(std::list<Studentai> &StudentuInfo, int n){
 				}
 			
 		}
-		int strat;
+		std::string strat;
 		std::cout << "Pasirinkite rusiavimo strategija: 1- pirma, 2 - antra" << std::endl;
 		std::cin >> strat;
-		while(strat != 1 && strat != 2){
+		while(strat != "1" && strat != "2"){
 			std::cout << "Ivestis neteisinga, bandykite is naujo irasydami arba 1 arba 2" << std::endl;
 			std::cin >> strat;
 		}
-		if(strat == 1){
+		if(strat == "1"){
 		auto start = std::chrono::high_resolution_clock::now();
      	ListRusiavimas1strat(StudentuInfo, n);
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> diff = end - start;
         std::cout << n << " Studentu rusiavimo laikas: " << diff.count() << " s." << std::endl;	
 		}
-		else {
+		if(strat == "2") {
 		auto start1 = std::chrono::high_resolution_clock::now();
      	ListRusiavimas2strat(StudentuInfo, n);
         auto end1 = std::chrono::high_resolution_clock::now();
