@@ -193,7 +193,7 @@ void Generuoti(std::list<Studentai> &StudentuInfo, int n){
 					suma += pazymys;
 			}
 			egzrez = Stud.ND[30];
-		vidurkis = suma /100;
+		vidurkis = suma /30;
 		galutinis = 0.4*vidurkis + 0.6*egzrez;
 		Stud.egzGal = galutinis;
 		StudentuInfo.push_back(Stud);
@@ -230,7 +230,7 @@ void FailuIrasymas(std::list<Studentai> &StudentuInfo, int n){
 		std::string strat;
 		std::cout << "Pasirinkite rusiavimo strategija: 1- pirma, 2 - antra" << std::endl;
 		std::cin >> strat;
-		while(strat != "1" && strat != "1"){
+		while(strat != "1" && strat != "2"){
 			std::cout << "Ivestis neteisinga, bandykite is naujo irasydami arba 1 arba 2" << std::endl;
 			std::cin >> strat;
 		}
