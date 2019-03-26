@@ -163,7 +163,9 @@ Greičiausias gautas laikas buvo gautas naudojant list'us ir 2 studentų rūšia
 
 Nuotraukos su programos laikais: [vektoriai](https://imgur.com/a/WJtahba), [listai](https://imgur.com/a/adZMfZU), [dekai](https://imgur.com/a/hKofp2w)
 ### [Papildomas Releasas (v1.1)](https://github.com/Dr1dd/2-u-d./releases/tag/v1.1)
-Papildoma užduotis reikalauja dar vieno studentų rūšiavimo būdo -> push backinti mažiau nei 5 balus gavusius studentus į naują vector konteinerį (šiuo atveju pav. neismoko) ir įterpti daugiau arba 5 gavusius studentus į tą patį pradinį buvusį vector konteinerį (mano atveju StudentuInfo)
+Papildoma užduotis reikalauja dar vieno studentų rūšiavimo būdo -> push backinti mažiau nei 5 balus gavusius studentus į naują vector konteinerį (šiuo atveju pav. neismoko) ir įterpti daugiau arba 5 gavusius studentus į tą patį pradinį buvusį vector konteinerį (mano atveju StudentuInfo).
+
+Buvo sukurtos naujos funkcijos: raskMinkstus(); iterpkKietus(); raskMinkstusDeque(); iterpkKietusDeque();
 
 
 | Vektoriai papildoma strat. "minkštų" rūšiavimas | Laikas |
