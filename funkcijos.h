@@ -39,4 +39,9 @@ void vector();
 void list();
 void deque();
 bool maziau(const Studentai &i);
+void raskMinkstus(std::vector<Studentai> &StudentuInfo, int n);
+void raskMinkstusDeque(std::deque<Studentai> &StudentuInfo, int n);
+void iterpkKietus(std::vector<Studentai> &StudentuInfo, int n);
+void iterpkKietusDeque(std::deque<Studentai> &StudentuInfo, int n);
+
 #endif

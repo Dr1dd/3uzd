@@ -230,10 +230,10 @@ void FailuIrasymas(std::deque<Studentai> StudentuInfo, int n){
 			}
 		}
 		std::string strat;
-		std::cout << "Pasirinkite rusiavimo strategija: 1- pirma, 2 - antra" << std::endl;
+		std::cout << "Pasirinkite rusiavimo strategija: 1- pirma, 2 - antra, 3 - papildoma" << std::endl;
 		std::cin >> strat;
-		while(strat != "1" && strat != "2"){
-			std::cout << "Ivestis neteisinga, bandykite is naujo irasydami arba 1 arba 2" << std::endl;
+		while(strat != "1" && strat != "2" && strat != "3"){
+			std::cout << "Ivestis neteisinga, bandykite is naujo irasydami arba 1 arba 2 arba 3" << std::endl;
 			std::cin >> strat;
 		}
 		if(strat == "1"){
@@ -243,12 +243,25 @@ void FailuIrasymas(std::deque<Studentai> StudentuInfo, int n){
         std::chrono::duration<double> diff = end - start;
         std::cout << n << " Studentu rusiavimo laikas: " << diff.count() << " s." << std::endl;	
 		}
-	if(strat == "2"){
+		if(strat == "2") {
 		auto start1 = std::chrono::high_resolution_clock::now();
      	DequeRusiavimas2strat(StudentuInfo, n);
         auto end1 = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> diff1 = end1 - start1;
         std::cout << n << " Studentu rusiavimo laikas: " << diff1.count() << " s." << std::endl;		
+		}
+			if(strat == "3"){
+		auto start2 = std::chrono::high_resolution_clock::now();
+        raskMinkstusDeque(StudentuInfo, n);
+        auto end2 = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> diff2 = end2 - start2;
+        std::cout << n << " 'Minkstu' Studentu rusiavimo laikas: " << diff2.count() << " s." << std::endl;	
+        
+        auto start3 = std::chrono::high_resolution_clock::now();
+        iterpkKietusDeque(StudentuInfo, n);
+        auto end3 = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> diff3 = end3 - start3;
+        std::cout << n << " 'Kietu' Studentu rusiavimo laikas: " << diff3.count() << " s." << std::endl;
 		}
  fr.close();
 
@@ -334,6 +347,71 @@ it++;
 	fr1.close();
 	fr2.close();
 }
+void raskMinkstusDeque(std::deque<Studentai> &StudentuInfo, int n){
+	std::stringstream ss;
+	ss << n;
+	std::string pav2= ss.str()+ "neislaike.txt";
+	std::deque<Studentai> neislaike;
+	std::ofstream fr2(pav2);
+		    fr2 << std::right << std::setw(23) << "Neislaike" << std::endl; 
+		    fr2 << std::left << std::setw(13) << "Pavarde" << std::left  << std::setw(13) << "Vardas" << std::left << std::setw(7) << "Galutinis balas" << std::endl;
+			fr2 <<std::endl;
+	 StudentuInfo.erase(StudentuInfo.begin());
+	 StudentuInfo.shrink_to_fit();
+
+std::deque<Studentai>::size_type i = 0;  
+
+int f1 = 0;
+while(i != StudentuInfo.size()){	
+		if(StudentuInfo[i].egzGal < 5){
+			if(StudentuInfo[i].fname == "") break;
+			 neislaike.push_back(StudentuInfo[i]);
+			 f1++;
+}
+i++;
+	}
+	neislaike.resize(std::distance(neislaike.begin(),neislaike.begin() + f1));
+	neislaike.shrink_to_fit();
+	int dydis2 = neislaike.size();
+		for(int j1 = 0; j1< dydis2; j1++){
+		fr2 << std::left << std::setw(13) << neislaike[j1].lname << std::left << std::setw(13) << neislaike[j1].fname << std::left << std::setw(7) << neislaike[j1].egzGal << std::endl;
+	}
+	fr2.close();
+}
+void iterpkKietusDeque(std::deque<Studentai> &StudentuInfo, int n){
+		std::stringstream ss;
+	ss << n;
+	std::string pav1= ss.str() +"islaike.txt";
+	std::deque<Studentai> neislaike;
+	std::ofstream fr1(pav1);
+			fr1 << std::right << std::setw(23) << "Islaike" << std::endl; 
+			fr1 << std::left << std::setw(13) << "Pavarde" << std::left  << std::setw(13) << "Vardas" << std::left << std::setw(7) << "Galutinis balas" << std::endl;
+			fr1 <<std::endl;
+	 StudentuInfo.erase(StudentuInfo.begin());
+	 StudentuInfo.shrink_to_fit();
+std::deque<Studentai>::size_type i = 0;  
+
+int f = 0;
+while(i != StudentuInfo.size()){	
+		if(StudentuInfo[i].egzGal >= 5){
+			if(StudentuInfo[i].fname == "") break;
+			 StudentuInfo.push_front(StudentuInfo[i]);
+			i++;
+			f++;
+}
+i++;
+	}
+	StudentuInfo.resize(std::distance(StudentuInfo.begin(),StudentuInfo.begin()+f));
+	StudentuInfo.shrink_to_fit();
+	 std::reverse(StudentuInfo.begin(),StudentuInfo.end()); 
+	int dydis1 = StudentuInfo.size();
+	for(int j = 0; j < dydis1; j++){
+		fr1 << std::left << std::setw(13) << StudentuInfo[j].lname << std::left << std::setw(13) << StudentuInfo[j].fname << std::left << std::setw(7) << StudentuInfo[j].egzGal << std::endl;
+	}
+	
+	fr1.close();
+}
+
 
 
 
