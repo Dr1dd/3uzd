@@ -2,11 +2,34 @@
 #define FUNKCIJOS_H
 #include <list>
 #include <deque>
-struct Studentai{
-	std::string fname, lname;
-	double egzGal;
-	double mediana;
-	std::vector<double> ND;
+
+class Studentai{
+	private:
+		std::string fname, lname;
+		double egzGal;
+		double mediana;
+		std::vector<double> ND;	
+	public:
+		Studentai(){
+			fname = " ";
+			lname = " ";
+			egzGal = 0;
+			mediana = 0;
+		}
+	void setFname(std::string fname_);
+	void setLname(std::string lname_);
+	void setegzRez(double egzGalutinis);
+	void setMediana(double med);
+	void setND(double ND_);
+	std::vector<double>& getND();
+	double getND(int nr);
+	inline std::string vardas() const { return fname; } // geteriai
+	inline std::string pavarde() const { return lname; }
+	double getEgzRez(){ return egzGal; }
+	double getMediana(){ return mediana; }
+	
+
+		
 };
      
 Studentai Informacija();
@@ -38,7 +61,7 @@ void DequeRusiavimas2strat(std::deque<Studentai> StudentuInfo, int n);
 void vector();
 void list();
 void deque();
-bool maziau(const Studentai &i);
+bool maziau(Studentai &i);
 void raskMinkstus(std::vector<Studentai> &StudentuInfo, int n);
 void raskMinkstusDeque(std::deque<Studentai> &StudentuInfo, int n);
 void iterpkKietus(std::vector<Studentai> &StudentuInfo, int n);

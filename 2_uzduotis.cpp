@@ -21,8 +21,8 @@ int main(){
 	    std::cin>> tipas;
 	}
 	if(tipas == "0") vector();
-	if(tipas == "1") list();
-	if(tipas == "2") deque();
+//	if(tipas == "1") list();
+//	if(tipas == "2") deque();
 
 	return 0;
 }

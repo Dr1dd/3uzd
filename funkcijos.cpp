@@ -36,10 +36,10 @@ Studentai Informacija(){
 	std::string ivestis;
 	std::cout <<"Iveskite varda" << std::endl;
 	std::cin.sync();
-	Stud.fname = Tikrinti(tekstas);
+	Stud.setFname(Tikrinti(tekstas));
 	std::cout <<"Iveskite pavarde" << std::endl;
 	std::cin.sync();
-    Stud.lname = Tikrinti(tekstas);
+    Stud.setLname(Tikrinti(tekstas));
 	bool gen = false;
 	std::string generuoti;
 	int randomSkaic;
@@ -58,7 +58,7 @@ Studentai Informacija(){
     	 gen = true;
     	for(int i =1;i <=n; i++){
     		randomSkaic = genSK(genseed);
-    	 Stud.ND.push_back(randomSkaic);
+    	 Stud.setND(randomSkaic);
     	 suma = suma + randomSkaic;
     }
 		}
@@ -72,7 +72,7 @@ Studentai Informacija(){
 		  i= i-1;
 		}
 		else {
-			Stud.ND.push_back(laik);
+			Stud.setND(laik);
 			suma = suma + laik;	
 		}
         }
@@ -88,7 +88,7 @@ Studentai Informacija(){
 			else {
 				if(laikina == 0) break;
 				p++;
-				Stud.ND.push_back(laikina);
+				Stud.setND(laikina);
 				suma = suma + laikina;
 			}
 		}
@@ -99,9 +99,9 @@ Studentai Informacija(){
 	if(p>0)vidurkis = (double)suma/p;
 	else vidurkis = (double)suma/n;
 	galutinis = 0.4 * vidurkis + 0.6*egzas;
-	Stud.egzGal = galutinis;
+	Stud.setegzRez(galutinis);
 	mediana = Mediana(Stud, n, p);
-	Stud.mediana = 0.4 * mediana + 0.6*egzas;
+	Stud.setMediana(0.4 * mediana + 0.6*egzas);
 	}
 	else{
 	std::cout <<"Iveskite egzamino rezultata" << std::endl;
@@ -118,9 +118,10 @@ Studentai Informacija(){
 	if(p>0)vidurkis = (double)suma/p;
 	else vidurkis = (double)suma/n;
 	galutinis = 0.4 * vidurkis + 0.6*egzaminas;
-	Stud.egzGal = galutinis;
+	Stud.setegzRez(galutinis);
 	mediana = Mediana(Stud, n, p);
-	Stud.mediana = 0.4 * mediana + 0.6*egzaminas;
+	Stud.setMediana(0.4 * mediana + 0.6*egzaminas);
+
 }
 
 return Stud;
@@ -129,21 +130,22 @@ return Stud;
 double Mediana(Studentai Stud, int n, int p){
 	double mediana;
 	int f = 0;
-
-	std::sort(Stud.ND.begin(), Stud.ND.end());
+	std::vector<double> NaDa;
+	NaDa = Stud.getND();
+	std::sort(NaDa.begin(), NaDa.end());
 
 	if(n!=0){
-		if(n % 2 == 0) mediana = (Stud.ND[n/2-1] + Stud.ND[n/2]) / 2;
+		if(n % 2 == 0) mediana = (NaDa[n/2-1] + NaDa[n/2]) / 2;
 		else {
 			if(n == 1) mediana = 1;
-			else mediana = Stud.ND[n/2];
+			else mediana = NaDa[n/2];
 		}
 	}
 	else{
-	if(p % 2 == 0)mediana = (Stud.ND[p/2-1] + Stud.ND[p/2]) / 2;
+	if(p % 2 == 0)mediana = (NaDa[p/2-1] + NaDa[p/2]) / 2;
 	 else {
 	 	if(p == 1) mediana == 1;
-	 	else mediana = Stud.ND[p/2];
+	 	else mediana = NaDa[p/2];
 	 }
 }
 
