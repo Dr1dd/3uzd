@@ -119,22 +119,22 @@ void Generuoti(std::vector<Studentai> StudentuInfo, int n){
 			suma = 0;
 			lname = "Pavarde";
 			lname+= std::to_string(i);
-			Stud.lname = lname;
+			Stud.setLname(lname);
 			fname = "Vardas";
 			fname+= std::to_string(i);
-			Stud.fname = fname;
-			Stud.ND.reserve(35);
+			Stud.setFname(fname);
+			Stud.getND().reserve(35);
 			for(int j = 0; j <= 30; j++){
 					pazymys = genSK(gen);
-					Stud.ND.push_back(pazymys);
+					Stud.setND(pazymys);
 					suma += pazymys;
 			}
-			egzrez = Stud.ND[30];
+			egzrez = Stud.getND(30);
 		vidurkis = suma /30;
 		galutinis = 0.4*vidurkis + 0.6*egzrez;
-		Stud.egzGal = galutinis;
+		Stud.setegzRez(galutinis);
 		StudentuInfo.push_back(Stud);
-		Stud.ND.clear();
+		Stud.getND().clear();
 	}
 	FailuIrasymas(StudentuInfo, n);
 }
@@ -155,10 +155,10 @@ void FailuIrasymas(std::vector<Studentai> StudentuInfo, int n){
 			}
 		}
 		else{
-			fr <<std::left << std::setw(14) << StudentuInfo[i].lname << std::left << std::setw(14) <<StudentuInfo[i].fname;
+			fr <<std::left << std::setw(14) << StudentuInfo[i].pavarde() << std::left << std::setw(14) <<StudentuInfo[i].vardas();
 			for(int j = 0; j <= 30; j++){
-				if(j != 30) fr << std::left << std::setw(7) << StudentuInfo[i].ND[j];
-				else fr << std::left << std::setw(13) << StudentuInfo[i].ND[j] << std::endl;
+				if(j != 30) fr << std::left << std::setw(7) << StudentuInfo[i].getND(j);
+				else fr << std::left << std::setw(13) << StudentuInfo[i].getND(j) << std::endl;
 				}
 			}
 		}
@@ -217,19 +217,19 @@ void VectorRusiavimas1strat(std::vector<Studentai> StudentuInfo, int n){
 			fr2 <<std::endl;
 
 StudentuInfo.erase(StudentuInfo.begin());
- auto it = std::copy_if (StudentuInfo.begin(), StudentuInfo.end(), neislaike.begin(), [](const Studentai & i){return i.egzGal <5;} );
+ auto it = std::copy_if (StudentuInfo.begin(), StudentuInfo.end(), neislaike.begin(), [](Studentai & i){return i.getEgzRez() <5;} );
 	neislaike.resize(std::distance(neislaike.begin(),it));
- auto it1 = std::copy_if (StudentuInfo.begin(), StudentuInfo.end(), islaike.begin(), [](const Studentai & f){return f.egzGal >=5;} );
+ auto it1 = std::copy_if (StudentuInfo.begin(), StudentuInfo.end(), islaike.begin(), [](Studentai & f){return f.getEgzRez() >=5;} );
 	islaike.resize(std::distance(islaike.begin(),it1));	
 	
 		
 	int dydis1 = islaike.size();
 	int dydis2 = neislaike.size();
 	for(int j = 0; j< dydis1; j++){
-		fr1 << std::left << std::setw(13) << islaike[j].lname << std::left << std::setw(13) << islaike[j].fname << std::left << std::setw(7) << islaike[j].egzGal << std::endl;
+		fr1 << std::left << std::setw(13) << islaike[j].pavarde() << std::left << std::setw(13) << islaike[j].vardas() << std::left << std::setw(7) << islaike[j].getEgzRez() << std::endl;
 	}
 		for(int j1 = 0; j1< dydis2; j1++){
-		fr2 << std::left << std::setw(13) << neislaike[j1].lname << std::left << std::setw(13) << neislaike[j1].fname << std::left << std::setw(7) << neislaike[j1].egzGal << std::endl;
+		fr2 << std::left << std::setw(13) << neislaike[j1].pavarde() << std::left << std::setw(13) << neislaike[j1].vardas() << std::left << std::setw(7) << neislaike[j1].getEgzRez()<< std::endl;
 	}
 	fr1.close();
 	fr2.close();
@@ -249,7 +249,7 @@ void VectorRusiavimas2strat(std::vector<Studentai> StudentuInfo, int n){
 		    fr2 << std::left << std::setw(13) << "Pavarde" << std::left  << std::setw(13) << "Vardas" << std::left << std::setw(7) << "Galutinis balas" << std::endl;
 			fr2 <<std::endl;
 	 StudentuInfo.erase(StudentuInfo.begin());
-auto it = std::copy_if (StudentuInfo.begin(), StudentuInfo.end(), neislaike.begin(), [](const Studentai & i){return i.egzGal <5;} );
+auto it = std::copy_if (StudentuInfo.begin(), StudentuInfo.end(), neislaike.begin(), [](Studentai & i){return i.getEgzRez() <5;} );
 	neislaike.resize(std::distance(neislaike.begin(),it));
   StudentuInfo.erase(std::remove_if(StudentuInfo.begin(), StudentuInfo.end(), maziau), StudentuInfo.end());
 	StudentuInfo.shrink_to_fit();
@@ -257,17 +257,17 @@ auto it = std::copy_if (StudentuInfo.begin(), StudentuInfo.end(), neislaike.begi
 	int dydis1 = StudentuInfo.size();
 	int dydis2 = neislaike.size();
 	for(int j = 0; j < dydis1; j++){
-		fr1 << std::left << std::setw(13) << StudentuInfo[j].lname << std::left << std::setw(13) << StudentuInfo[j].fname << std::left << std::setw(7) << StudentuInfo[j].egzGal << std::endl;
+		fr1 << std::left << std::setw(13) << StudentuInfo[j].pavarde() << std::left << std::setw(13) << StudentuInfo[j].vardas() << std::left << std::setw(7) << StudentuInfo[j].getEgzRez() << std::endl;
 	}
 		for(int j1 = 0; j1< dydis2; j1++){
-		fr2 << std::left << std::setw(13) << neislaike[j1].lname << std::left << std::setw(13) << neislaike[j1].fname << std::left << std::setw(7) << neislaike[j1].egzGal << std::endl;
+		fr2 << std::left << std::setw(13) << neislaike[j1].pavarde() << std::left << std::setw(13) << neislaike[j1].vardas() << std::left << std::setw(7) << neislaike[j1].getEgzRez() << std::endl;
 	}
 	fr1.close();
 	fr2.close();
 }
-bool maziau(const Studentai & i)
+bool maziau(Studentai & i)
 { 
-    return i.egzGal < 5; 
+    return i.getEgzRez() < 5; 
 } 
 
 void raskMinkstus(std::vector<Studentai> &StudentuInfo, int n){
@@ -286,8 +286,8 @@ std::vector<Studentai>::size_type i = 0;
 
 int f1 = 0;
 while(i != StudentuInfo.size()){	
-		if(StudentuInfo[i].egzGal < 5){
-			if(StudentuInfo[i].fname == "") break;
+		if(StudentuInfo[i].getEgzRez() < 5){
+			if(StudentuInfo[i].vardas() == "") break;
 			 neislaike.push_back(StudentuInfo[i]);
 			 f1++;
 }
@@ -297,7 +297,7 @@ i++;
 	neislaike.shrink_to_fit();
 	int dydis2 = neislaike.size();
 		for(int j1 = 0; j1< dydis2; j1++){
-		fr2 << std::left << std::setw(13) << neislaike[j1].lname << std::left << std::setw(13) << neislaike[j1].fname << std::left << std::setw(7) << neislaike[j1].egzGal << std::endl;
+		fr2 << std::left << std::setw(13) << neislaike[j1].pavarde() << std::left << std::setw(13) << neislaike[j1].vardas() << std::left << std::setw(7) << neislaike[j1].getEgzRez()<< std::endl;
 	}
 	fr2.close();
 }
@@ -313,8 +313,8 @@ std::vector<Studentai>::size_type i = 0;
 
 int f = 0;
 while(i != StudentuInfo.size()){	
-		if(StudentuInfo[i].egzGal >= 5){
-			if(StudentuInfo[i].fname == "") break;
+		if(StudentuInfo[i].getEgzRez() >= 5){
+			if(StudentuInfo[i].vardas() == "") break;
 			 StudentuInfo.insert(StudentuInfo.begin(), StudentuInfo[i]);
 			i++;
 			f++;
@@ -326,10 +326,11 @@ i++;
 	 std::reverse(StudentuInfo.begin(),StudentuInfo.end()); 
 	int dydis1 = StudentuInfo.size();
 	for(int j = 0; j < dydis1; j++){
-		fr1 << std::left << std::setw(13) << StudentuInfo[j].lname << std::left << std::setw(13) << StudentuInfo[j].fname << std::left << std::setw(7) << StudentuInfo[j].egzGal << std::endl;
+		fr1 << std::left << std::setw(13) << StudentuInfo[j].vardas() << std::left << std::setw(13) << StudentuInfo[j].pavarde() << std::left << std::setw(7) << StudentuInfo[j].getEgzRez() << std::endl;
 	}
 	
 	fr1.close();
 }
+
 
 

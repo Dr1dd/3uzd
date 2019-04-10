@@ -65,7 +65,7 @@ double TikrintiSkaicius(std::string tekstas){
 
 bool Lyginimas(const Studentai &a, const Studentai &b)
 {
-    return a.lname < b.lname;
+    return a.pavarde() < b.pavarde();
 }
 bool fileExists(const std::string& filename) {
   std::ifstream ifile(filename.c_str());
