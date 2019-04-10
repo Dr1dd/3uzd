@@ -224,4 +224,60 @@ Gauta užduotis buvo pakeisti stuktūrą `Studentai` į klasę `Studentai`.
 ```
 Užduotis reikalavo patikrinti programos veikimo laiką su struktūra ir su klase.
 
+Rezultatai:
+
+| Studentų skaičius | Laikas 1 strategijos su struktūra |  Laikas 1 strategijos su klase |
+| ----------------- | ------ | ------- |
+| 10 | 0.00403 s. | 0.007812 s. |
+| 100 | 0.0117 s. | 0.00757 s. |
+| 1000 | 0.01955 s. | 0.0196 s. |
+| 10000 | 0.10399 s. | 0.10800 s. |
+| 100000 | 0.8896 s. | 0.9760 s. |
+
+
+| Studentų skaičius | Laikas 2 strategijos su struktūra |  Laikas 2 strategijos su klase |
+| ----------------- | ------ | ------- |
+| 10 | 0.00404 s. | 0.01158 s. |
+| 100 | 0.007588 s. | 0.008025 s. |
+| 1000 | 0.01757 s. | 0.050232 s. |
+| 10000 | 0.10755 s. | 0.1119 s. |
+| 100000 | 0.98011 s. | 0.9739 s. |
+
+Programa veikia panašiu/vienodu greičiu.
+
+Programos studentų rūšiavimo laikai naudojantis optimizavimo flag'us:
+
+| Studentų skaičius | Laikas be flag'ų |
+| ----------------- | ------ |
+| 10 | 0.007947 s. | 
+| 100 | 0.1673 s. |
+| 1000 | 0.0459 s. | 
+| 10000 | 0.25997 s. |
+| 100000 | 1.0003 s. | 
+
+| Studentų skaičius | Laikas su -O1 flag'u |
+| ----------------- | ------ |
+| 10 | 0.007999 s. | 
+| 100 | 0.01201 s. |
+| 1000 | 0.036 s. | 
+| 10000 | 0.1115 s. |
+| 100000 | 0.951 s. | 
+
+| Studentų skaičius | Laikas su -O2 flag'u |
+| ----------------- | ------ |
+| 10 | 0.00594 s. | 
+| 100 | 0.008034 s. |
+| 1000 | 0.02 s. | 
+| 10000 | 0.1116 s. |
+| 100000 | 1.0226 s. | 
+
+| Studentų skaičius | Laikas su -O3 flag'u |
+| ----------------- | ------ |
+| 10 | 0.0116 s. | 
+| 100 | 0.0356 s. |
+| 1000 | 0.016 s. | 
+| 10000 | 0.273 s. |
+| 100000 | 0.956 s. | 
+
+Kaip matome, keičiant optimizavimo flag'us, programos studentų rūšiavimo laikas beveik arba visiškai nesikeičia.
 
