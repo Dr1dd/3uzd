@@ -208,3 +208,20 @@ ___
 Taip pat "minkštų" studentų rūšiavimo laikas yra trumpesnis nei "kietų". Insert tipo rūšiavimas labiau tinka dekų konteineriams, nes į juos galima tiesiog "push front'inti".
 
 Nuotraukos su keliais bandymais: [imgur link](https://imgur.com/a/kNWviiv)
+
+
+# 3 užduotis
+
+## Releasai:
+
+### [1 Releasas (v1.1)](https://github.com/Dr1dd/3uzd/releases/tag/v1.1)
+Gauta užduotis buvo pakeisti stuktūrą `Studentai` į klasę `Studentai`.
+
+Šią užduotį pavyko realizuoti naudojant get'terius ir set'terius. PVZ.:
+```
+	void setLname(std::string lname_);
+	inline std::string pavarde() const { return lname; }
+```
+Užduotis reikalavo patikrinti programos veikimo laiką su struktūra ir su klase.
+
+
