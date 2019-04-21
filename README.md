@@ -290,4 +290,4 @@ Gauta užduotis reikalavo realizuoti galimus programai papildomus operatorius.
 
 Pvz.:
 
-![friend operatoriai](https://imgur.com/oqfKKuP)
+![friend operatoriai](https://i.imgur.com/oqfKKuP.png)
