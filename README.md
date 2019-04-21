@@ -281,3 +281,13 @@ Programos studentų rūšiavimo laikai naudojantis optimizavimo flag'us:
 
 Kaip matome, keičiant optimizavimo flag'us, programos studentų rūšiavimo laikas beveik arba visiškai nesikeičia.
 
+### [2 Releasas (v1.2)](https://github.com/Dr1dd/3uzd/releases/tag/v1.2)
+
+Gauta užduotis reikalavo realizuoti galimus programai papildomus operatorius.
+"Overload'inti" operatoriai:
+
+`>` `>>` `<<` `=` `<=` `/` `+=` `==`
+
+Pvz.:
+
+![friend operatoriai](https://imgur.com/a/QPkrtnQ)
