@@ -31,4 +31,6 @@ std::vector<double>& Studentai::getND(){
 double Studentai::getND(int nr){
 	return ND[nr];
 }
-
+bool operator== (Studentai &a, Studentai &b){
+			 return a.vardas()==b.vardas() && a.pavarde() == b.pavarde()&& a.getEgzRez() == b.getEgzRez();
+}
