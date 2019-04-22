@@ -1,7 +1,6 @@
 #ifndef FUNKCIJOS_H
 #define FUNKCIJOS_H
-#include <list>
-#include <deque>
+
 
 class Zmogus{
 	public:
