@@ -3,9 +3,24 @@
 #include <list>
 #include <deque>
 
-class Studentai{
+class Zmogus{
+	public:
+void setFname(std::string fname_){
+	fname = fname_;
+}
+void setLname(std::string lname_){
+	lname = lname_;
+}
+virtual void setegzRez(double egzGalutinis) = 0;
+	protected:
+		std::string fname;
+		std::string lname;
+		double ugis;
+		bool lytis; // pvz 1 - vyras 0 - moteris
+};
+
+class Studentai: public Zmogus{
 	private:
-		std::string fname, lname;
 		double egzGal;
 		double mediana;
 		std::vector<double> ND;	
@@ -26,8 +41,6 @@ class Studentai{
 			return *this;
 			
 		}
-	void setFname(std::string fname_);
-	void setLname(std::string lname_);
 	void setegzRez(double egzGalutinis);
 	void setMediana(double med);
 	void setND(double ND_);
@@ -66,36 +79,20 @@ class Studentai{
 Studentai Informacija();
 void Spausdinti(std::vector<Studentai> Studentai, std::string tipas, int studSkaic);
 void Spausdinti(std::vector<Studentai> Studentai);
-//void SpausdintiList(std::list<Studentai> &StudentuInfo);
-//void SpausdintiDeque(std::deque<Studentai> &StudentuInfo);
 double Mediana(Studentai Stud, int n, int p);
 std::string Tikrinti(std::string tekstas);
 double TikrintiSkaicius(std::string tekstas);
 void Skaitymas(std::vector<Studentai> &StudentuInfo, std::string pav);
-//void SkaitymasList(std::list<Studentai> &StudentuInfo, std::string pav);
-//void SkaitymasDeque(std::deque<Studentai> &StudentuInfo, std::string pav);
 bool Lyginimas(const Studentai &a, const Studentai &b);
 bool fileExists(const std::string& filename);
 void Generuoti(int n);
 void Generuoti(std::vector<Studentai> StudentuInfo, int n);
-//void Generuoti(std::list<Studentai> &StudentuInfo, int n);
-//void Generuoti(std::deque<Studentai> StudentuInfo, int n);
 void FailuIrasymas(std::vector<Studentai> StudentuInfo, int n);
-//void FailuIrasymas(std::list<Studentai> &StudentuInfo, int n);
-//void FailuIrasymas(std::deque<Studentai> StudentuInfo, int n);
 void VectorRusiavimas1strat(std::vector<Studentai> StudentuInfo, int n);
-//void ListRusiavimas1strat(std::list<Studentai> &StudentuInfo, int n);
-//void DequeRusiavimas1strat(std::deque<Studentai> StudentuInfo, int n);
 void VectorRusiavimas2strat(std::vector<Studentai> StudentuInfo, int n);
-//void ListRusiavimas2strat(std::list<Studentai> &StudentuInfo, int n);
-//void DequeRusiavimas2strat(std::deque<Studentai> StudentuInfo, int n);
 void vector();
-void list();
-void deque();
 bool maziau(Studentai &i);
 void raskMinkstus(std::vector<Studentai> &StudentuInfo, int n);
-//void raskMinkstusDeque(std::deque<Studentai> &StudentuInfo, int n);
 void iterpkKietus(std::vector<Studentai> &StudentuInfo, int n);
-//void iterpkKietusDeque(std::deque<Studentai> &StudentuInfo, int n);
 
 #endif

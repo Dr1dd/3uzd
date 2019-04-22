@@ -10,12 +10,6 @@
 #include <fstream>
 #include "funkcijos.h"
 
-void Studentai::setFname(std::string fname_){
-	fname = fname_;
-}
-void Studentai::setLname(std::string lname_){
-	lname = lname_;
-}
 void Studentai::setegzRez(double egzGalutinis){
 	egzGal = egzGalutinis;
 }

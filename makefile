@@ -1,5 +1,5 @@
-2_uzduotis: funkcijos.o tikrinimas.o in_out.o vector.o Studentai.o
-	g++ -o 2_uzduotis 2_uzduotis.cpp funkcijos.o tikrinimas.o in_out.o vector.o Studentai.o
+3_uzduotis: funkcijos.o tikrinimas.o in_out.o vector.o Studentai.o
+	g++ -o 3_uzduotis 3_uzduotis.cpp funkcijos.o tikrinimas.o in_out.o vector.o Studentai.o
 funkcijos:
 	g++ -std=c++11 funkcijos.cpp
 tikrinimas:
