@@ -1,11 +1,8 @@
-2_uzduotis.exe
-2_uzduotis_Masyvai.exe
-2_uzduotis.o
+3_uzduotis.exe
+3_uzduotis.o
 funkcijos.o
 in_out.o
 tikrinimas.o
 funkcijos.h.gch
 vector.o
-list.o
-deque.o
 Studentai.o

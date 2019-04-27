@@ -291,3 +291,35 @@ Gauta užduotis reikalavo realizuoti galimus programai papildomus operatorius.
 Pvz.:
 
 ![friend operatoriai](https://i.imgur.com/oqfKKuP.png)
+
+### [3 Releasas (v1.5)](https://github.com/Dr1dd/3uzd/releases/tag/v1.5)
+
+Ši užduotis reikalavo iš vienos turimos klasės padaryti dvi: bazinę (base) ir išvestinę (derived) klases. Išvestinė klasė paveldi tam tikrus kintamuosius ar funkcijas iš bazinės klasės. Šiuo atveju programoje buvo sukurti `Žmogaus` ir `Studentų` klasės.
+pvz.: Zmogaus bazinė klasė
+```
+class Zmogus{
+	public:
+void setFname(std::string fname_){
+	fname = fname_;
+}
+void setLname(std::string lname_){
+	lname = lname_;
+}
+virtual void setegzRez(double egzGalutinis) = 0;
+	protected:
+		std::string fname;
+		std::string lname;
+		double ugis;
+		bool lytis; // pvz 1 - vyras 0 - moteris
+};
+```
+Padaryta `virtual` funkcija reiškia, jog šios klasės objektų negalima padaryti. Jeigu virtual funkcija egzistuoja bazinėje klasėje, tai reiškia, kad šios klasės išvestinėse klasėse turės būtinai būti ta pati (pavadinimas toks pat) tik ne virtual funkcija.
+
+Išvestinė klasė `Studentai`:
+
+```
+class Studentai: public Zmogus{
+
+}
+```
+Taip Studentai klasė paveldi `Vardus` ir `Pavardes` iš `Žmogaus` klasės.
