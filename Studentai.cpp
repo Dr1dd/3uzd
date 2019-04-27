@@ -28,3 +28,6 @@ double Studentai::getND(int nr){
 bool operator== (Studentai &a, Studentai &b){
 			 return a.vardas()==b.vardas() && a.pavarde() == b.pavarde()&& a.getEgzRez() == b.getEgzRez();
 }
+bool operator!= (Studentai &a, Studentai &b){
+			 return !(a==b);
+}

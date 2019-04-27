@@ -75,6 +75,7 @@ class Studentai: public Zmogus{
 };
 
  bool operator== (Studentai &a, Studentai &b);
+ bool operator!= (Studentai &a, Studentai &b);
 Studentai Informacija();
 void Spausdinti(std::vector<Studentai> Studentai, std::string tipas, int studSkaic);
 void Spausdinti(std::vector<Studentai> Studentai);
