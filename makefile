@@ -11,4 +11,4 @@ vector:
 Studentai:
 	g++ -std=c++11 Studentai.cpp	
 clean:
-	del *.o 2_uzduotis.exe
+	del *.o 3_uzduotis.exe

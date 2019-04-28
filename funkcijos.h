@@ -24,11 +24,23 @@ class Studentai: public Zmogus{
 		double mediana;
 		std::vector<double> ND;	
 	public:
+		~Studentai(){}
 		Studentai(){
 			fname = " ";
 			lname = " ";
 			egzGal = 0;
 			mediana = 0;
+		}
+		Studentai(const  Studentai& a)
+		{
+			fname = a.fname;
+			lname = a.lname;
+			egzGal = a.egzGal;
+			mediana = a.mediana;
+			ND.reserve(a.ND.size());
+		 for(auto& i : ND){
+		 	ND[i] = a.ND[i];
+		 }
 		}
 		Studentai& operator=(const Studentai& a){
 			if(&a == this) return *this;
