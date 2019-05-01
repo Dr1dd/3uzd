@@ -347,7 +347,7 @@ Atlikti testai:
 
 [Su Teksto tikrinimu](https://imgur.com/a/55h0UoI)
 
-[Su Skaičių tikrinimu(https://imgur.com/a/1C7pTPP)
+[Su Skaičių tikrinimu](https://imgur.com/a/1C7pTPP)
 
 [Su Failo egzistavimu](https://imgur.com/a/53BN1uG)
 
