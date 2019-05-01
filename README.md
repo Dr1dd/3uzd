@@ -323,3 +323,32 @@ class Studentai: public Zmogus{
 }
 ```
 Taip Studentai klasė paveldi `Vardus` ir `Pavardes` iš `Žmogaus` klasės.
+
+
+### [4 Releasas (v2.0)](https://github.com/Dr1dd/3uzd/releases/tag/v2.0)
+
+Gauta ketvirtoji užduotis buvo sukurti `Doxygen` dokumentaciją (dokumentacijos generavimas) ir padaryti kelis `Unit` testus.
+Dokumentaciją pavyko sugeneruoti pasinaudojus DoxyWizard programa. Pasirinktas `EXTRACT_ALL` būdas.
+![imgur](https://imgur.com/p7WOLht.png)
+
+Keli unit testai buvo išbandyti naudojant `Catch2` framework'ą. [Link](https://github.com/catchorg/Catch2). Šis framework'as yra turbūt vienas iš paprasčiausių naudoti. 
+Žingsniai, kurie yra reikalingi tolimesniam testavimui:
+
+Mes matome, jog turime `unit_testui` aplanką, kuriame yra reikiami failai (tiksliau catch.h ir catch2config.cpp). Šiuos failus perkeliame yra pagrindinį aplanką, kuriame yra visi kiti cpp ir header failai. `makefile` failiuką pakeičiame taip:
+![](https://imgur.com/mNJ5ie7.png)
+
+Tai reiškia, kad mūsų catch2config failas pakeis 3_uzduotis.cpp failą, kuris iki šiol buvo main failas.
+
+Galiausiai pasirinkę tam tikra cpp failiuką, kuriame darysime testus jame viršuje "includiname" `#include "catch.h"`.
+Dabar jau galime pradėti testuoti savo funkcijas. Pvz.:
+![](https://imgur.com/dfJQmgr.png)
+
+Atlikti testai:
+
+[Su Teksto tikrinimu](https://imgur.com/a/55h0UoI)
+
+[Su Skaičių tikrinimu(https://imgur.com/a/1C7pTPP)
+
+[Su Failo egzistavimu](https://imgur.com/a/53BN1uG)
+
+[Su vectoriais (panaudotos sekcijos)](https://imgur.com/a/XUdPTky)
