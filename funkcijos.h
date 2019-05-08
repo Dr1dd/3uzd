@@ -24,21 +24,33 @@ class Studentai: public Zmogus{
 		double mediana;
 		std::vector<double> ND;	
 	public:
+		/**
+		* Konstruktorius (paprastas)
+		**/
 		Studentai(){
 			fname = " ";
 			lname = " ";
 			egzGal = 0;
 			mediana = 0;
 		}
+		/**
+		* Destruktorius
+		**/
 		~Studentai(){}
-		Studentai(const Studentai &a)
+		/**
+		* copy Konstruktorius
+		**/
+		Studentai(const  Studentai& a)
 		{
 			fname = a.fname;
 			lname = a.lname;
 			egzGal = a.egzGal;
 			mediana = a.mediana;
-			ND=a.ND;
+			ND = a.ND;
 		}
+		/**
+		* copy assignment operatorius
+		**/
 		Studentai& operator=(const Studentai& a){
 			if(&a == this) return *this;
 			fname = a.fname;
